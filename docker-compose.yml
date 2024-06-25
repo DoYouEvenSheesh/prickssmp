@@ -1,0 +1,27 @@
+services:
+  mc:
+    image: itzg/minecraft-server
+    container_name: paper
+    tty: true
+    stdin_open: true
+    environment:
+      EULA: "true"
+      TYPE: PAPER
+      VIEW_DISTANCE: 10
+      MEMORY: 4G
+      MOTD: \u00A7c\u00A7oYou Wouldn't Download a Car
+# Add Plugin Id's Here after Uncommenting    
+#   SPIGET_RESOURCES: |
+        
+#     PLUGINS: |
+#           
+
+
+      REMOVE_OLD_MODS: true
+    ports:
+      - "25565:25565"
+    volumes:
+      - ./minecraft-data:/data
+    restart: unless-stopped
+volumes:
+  mc-paper: {}
